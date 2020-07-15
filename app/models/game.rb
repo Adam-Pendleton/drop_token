@@ -4,9 +4,9 @@ class Game < ApplicationRecord
 
   has_many :game_players
   has_many :players, :through => :game_players
-  has_many :moves
+  has_many :moves, :dependent => :destroy
   belongs_to :winner, :class_name => 'Player', :optional => true
-  belongs_to :board, :optional => true
+  belongs_to :board, :optional => true, :dependent => :destroy
 
   validates_uniqueness_of :code, :allow_nil => true
 
