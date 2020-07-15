@@ -27,7 +27,7 @@ class Move < ApplicationRecord
   private
   
   def set_move_number
-    self.move_number = game.moves.count + 1
+    self.move_number = game.moves.count
   end
 
   def column_must_be_in_bounds
