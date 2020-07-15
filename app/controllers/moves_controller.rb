@@ -31,7 +31,7 @@ class MovesController < ActionController::Base
         render :json => { error: 'The until parameter must not be lower than the start parameter' }, :status => 400
         return
       end
-      count = start.present? ? til - start : til
+      count = start.present? ? til - start + 1 : til + 1
     end
 
     game = Game.find_by(:code => params[:game_code])
